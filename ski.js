@@ -1,16 +1,16 @@
 // ==UserScript==
-// @name         bot google v2
+// @name         bot google v2ski
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       Krylov Andrey
 // @match        https://www.google.com/*
-// @match        https://www.zozhnik.ru/*
+// @match        https://www.ski.ru/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=google.com
 // @grant        none
 // ==/UserScript==
 
-let keywords = ["метод тарелки", "что такое плато и", "Как меняется личность с годами"];
+let keywords = ["заточка кантов", "горные лыжи", "История сноуборда"];
 let keyword = keywords[getRandom(0, keywords.length)];
 //let keyword = "Как жидкие калории мешают похудению";
 //let keyword = "Расписание электричек";
@@ -27,19 +27,19 @@ if (searchBtn !== undefined) {
             clearInterval(timerId);
             searchBtn.click();}
     }, 300)
-    }else if (location.hostname == "zozhnik.ru"){
+    }else if (location.hostname == "https://www.ski.ru"){
         console.log("Это целевой сайт");
         setInterval(() => {
             let index = getRandom(0, links.length);
-            if (getRandom(0, 101) >= 80) {
+            if (getRandom(0, 101) >= 70) {
                 location.href = "https://www.google.com/";
             }
-            if (links[index].href.indexOf("zozhnik.ru") != -1) links[index].click();
+            if (links[index].href.indexOf("https://www.ski.ru") != -1) links[index].click();
         }, getRandom(2000, 5000))
     } else {
         let nextPage = true;
         for(let i = 0; i < links.length; i++) {
-            if (links[i].href.indexOf("zozhnik.ru") != -1) {
+            if (links[i].href.indexOf("https://www.ski.ru") != -1) {
                 let link = links[i];
                 nextPage = false;
                 console.log("Нашел строку " + link);
